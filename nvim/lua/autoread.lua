@@ -44,3 +44,6 @@ function AutoreadToggle()
     enable_autoread()
   end
 end
+
+-- Enable autoread by default
+enable_autoread()
