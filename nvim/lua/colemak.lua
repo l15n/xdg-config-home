@@ -21,9 +21,15 @@ local keymaps = {
   { modes = {'n', 'v', 'o'}, lhs = 'l', rhs = 'u' },  -- undo
   { modes = {'n', 'v', 'o'}, lhs = 'L', rhs = 'U' },  -- undo line
 
-  -- Fix g commands
-  { modes = {'n'}, lhs = 'ge', rhs = 'gj' },
-  { modes = {'n'}, lhs = 'gu', rhs = 'gk' },
+  -- Fix g commands (position-based)
+  { modes = {'n'}, lhs = 'ge', rhs = 'gj' },   -- down display line
+  { modes = {'n'}, lhs = 'gu', rhs = 'gk' },   -- up display line
+  { modes = {'n'}, lhs = 'gl', rhs = 'gu' },   -- lowercase (displaced from gu→gk)
+  { modes = {'n'}, lhs = 'gL', rhs = 'gU' },   -- uppercase
+  { modes = {'n'}, lhs = 'gk', rhs = 'gn' },   -- next search match (displaced from n→j)
+  { modes = {'n'}, lhs = 'gK', rhs = 'gN' },   -- previous search match
+  { modes = {'v'}, lhs = 'gk', rhs = 'gn' },   -- next search match in visual mode
+  { modes = {'v'}, lhs = 'gK', rhs = 'gN' },   -- previous search match in visual mode
 
   -- Window movement keys
   { modes = {'n'}, lhs = '<C-w>n', rhs = '<C-w>j' },
