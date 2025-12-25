@@ -73,7 +73,7 @@ local keymaps = {
   { modes = {'n'}, lhs = '<A-i>', rhs = '<C-w>i' },
 }
 
-local function enable_colemak()
+local function enable_colemak(silent)
   colemak_enabled = true
   
   -- Set all keymaps
@@ -83,7 +83,9 @@ local function enable_colemak()
     end
   end
   
-  print("Enabled Colemak")
+  if not silent then
+    print("Enabled Colemak")
+  end
 end
 
 local function disable_colemak()
@@ -107,5 +109,5 @@ function ColemakToggle()
   end
 end
 
--- Enable colemak by default
-enable_colemak()
+-- Enable colemak by default (silently)
+enable_colemak(true)

@@ -3,7 +3,7 @@
 
 local autoread_enabled = false
 
-local function enable_autoread()
+local function enable_autoread(silent)
   autoread_enabled = true
   vim.opt.autoread = true
   
@@ -24,7 +24,9 @@ local function enable_autoread()
     command = "checktime"
   })
   
-  print("Autoread enabled")
+  if not silent then
+    print("Autoread enabled")
+  end
 end
 
 local function disable_autoread()
@@ -45,5 +47,5 @@ function AutoreadToggle()
   end
 end
 
--- Enable autoread by default
-enable_autoread()
+-- Enable autoread by default (silently)
+enable_autoread(true)
