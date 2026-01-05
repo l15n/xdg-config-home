@@ -24,12 +24,8 @@ require('pckr').add{
   'tpope/vim-rhubarb';
   -- :Rg using quickfix buffer
   'jremmen/vim-ripgrep';
-  -- Handy wrapper for fzf
-  -- :GFiles, :Lines, :Find
-  { 'junegunn/fzf', run =  function()
-    vim.fn['fzf#install()'](0)
-  end  };
-  'junegunn/fzf.vim';
+  -- Lua-native fzf integration
+  'ibhagwan/fzf-lua';
   'tpope/vim-surround';
   'tpope/vim-unimpaired';
   -- vim-repeat: Enables `.` for plugins like surround.vim, uninmpaired.vim

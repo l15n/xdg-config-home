@@ -1,0 +1,5 @@
+vim.keymap.set("n", "<Leader>fg", "<cmd>FzfLua git_files<cr>")
+vim.keymap.set("n", "<Leader>ff", "<cmd>FzfLua files<cr>")
+vim.keymap.set("n", "<Leader>fl", "<cmd>FzfLua lines<cr>")
+vim.keymap.set("n", "<Leader>fb", "<cmd>FzfLua buffers<cr>")
+vim.keymap.set("n", "<Leader>fr", "<cmd>FzfLua live_grep<cr>")

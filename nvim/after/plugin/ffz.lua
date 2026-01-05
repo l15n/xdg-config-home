@@ -1,5 +1,0 @@
-vim.keymap.set("n", "<Leader>fg", "<cmd>GFile<cr>")
-vim.keymap.set("n", "<Leader>ff", "<cmd>Files<cr>")
-vim.keymap.set("n", "<Leader>fl", "<cmd>Lines<cr>")
-vim.keymap.set("n", "<Leader>fb", "<cmd>Buffers<cr>")
-vim.keymap.set("n", "<Leader>fr", "<cmd>Rg")
