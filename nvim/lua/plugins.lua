@@ -69,4 +69,13 @@ require('pckr').add{
     end,
   };
   --'nvim-treesitter/playground';
+
+  -- GitHub integration for issues, PRs, and more
+  { 'pwntester/octo.nvim',
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'ibhagwan/fzf-lua'},
+      {'nvim-tree/nvim-web-devicons'},
+    },
+  };
 }
