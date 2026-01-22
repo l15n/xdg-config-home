@@ -1,24 +1,21 @@
 # git worktree delete (remove worktree)
-function gwtd
+function gwt-delete
     set current_root (git rev-parse --show-toplevel 2>/dev/null)
-    or return 1
-
-    # Get main worktree (first in list)
-    set main_root (git worktree list | head -1 | awk '{print $1}')
-
-    # Build worktree list for fzf, find current index for default selection
-    set worktrees (git worktree list)
-    set current_index 1
-    set i 1
-    for wt in $worktrees
-        set wt_path (echo $wt | awk '{print $1}')
-        if test "$wt_path" = "$current_root"
-            set current_index $i
-        end
-        set i (math $i + 1)
+    if test $status -ne 0
+        echo "Error: Not in a git repository"
+        return 1
     end
 
-    set selected (printf '%s\n' $worktrees | fzf --reverse --height 20 --header "Select worktree to remove" --default-pos=$current_index)
+    # Get main worktree (first in list) and linked worktrees
+    set main_root (git worktree list | head -1 | awk '{print $1}')
+    set linked_worktrees (git worktree list | tail -n +2)
+
+    if test (count $linked_worktrees) -eq 0
+        echo "No linked worktrees to remove"
+        return 0
+    end
+
+    set selected (printf '%s\n' $linked_worktrees | fzf --reverse --height 20 --header "Select worktree to remove")
     or return 0
 
     set target_root (echo $selected | awk '{print $1}')
