@@ -1,5 +1,5 @@
 # git worktree add (create new worktree with branch)
-function gwta
+function gwt-add
     set branch_name $argv[1]
     if test -z "$branch_name"
         echo "Usage: gwta <branch-name>"
