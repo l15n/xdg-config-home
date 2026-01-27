@@ -13,7 +13,7 @@ function gwt-sync
     end
 
     # Check main worktree is clean
-    if test -n (git status --porcelain 2>/dev/null)
+    if git status --porcelain 2>/dev/null | string length -q
         echo "Error: Main worktree has uncommitted changes"
         echo "Please commit or stash changes before syncing"
         return 1
@@ -39,8 +39,8 @@ function gwt-sync
         echo "Uncommitted files to copy:"
         for file in $uncommitted_files
             # Get status indicator
-            set status (git -C "$target_root" status --porcelain -- "$file" | string sub -l 2)
-            echo "  $status $file"
+            set file_status (git -C "$target_root" status --porcelain -- "$file" | string sub -l 2)
+            echo "  $file_status $file"
         end
     else
         echo "No uncommitted files to copy"

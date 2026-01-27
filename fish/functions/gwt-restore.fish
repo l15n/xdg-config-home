@@ -42,8 +42,8 @@ function gwt-restore
     if test (count $uncommitted_files) -gt 0
         echo "Will discard uncommitted changes:"
         for file in $uncommitted_files
-            set status (git status --porcelain -- "$file" | string sub -l 2)
-            echo "  $status $file"
+            set file_status (git status --porcelain -- "$file" | string sub -l 2)
+            echo "  $file_status $file"
         end
     else
         echo "No uncommitted changes to discard"
